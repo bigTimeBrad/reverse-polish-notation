@@ -1,0 +1,6 @@
+/Users/BradNissen/Projects/Postfixnotation/obj/x86/Debug/Postfixnotation.csprojAssemblyReference.cache
+/Users/BradNissen/Projects/Postfixnotation/obj/x86/Debug/Postfixnotation.csproj.CoreCompileInputs.cache
+/Users/BradNissen/Projects/Postfixnotation/bin/Debug/Postfixnotation.exe
+/Users/BradNissen/Projects/Postfixnotation/bin/Debug/Postfixnotation.pdb
+/Users/BradNissen/Projects/Postfixnotation/obj/x86/Debug/Postfixnotation.exe
+/Users/BradNissen/Projects/Postfixnotation/obj/x86/Debug/Postfixnotation.pdb
