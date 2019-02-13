@@ -35,7 +35,8 @@ namespace Postfixnotation
 
         public string Result()
         {
-            return operandStack.Pop().ToString();
+            if (operandStack.Count() == 0) { return ""; }
+            return operandStack.Peek().ToString();
         }
 
         public Boolean IsOperator(string input)
@@ -80,35 +81,40 @@ namespace Postfixnotation
             {
                 // set max to the first value
                 int maxVal = values.Peek();
+
                 Stack<int> tempStack = new Stack<int>();
 
-                for (int i = 0; i < values.Count(); i++)
+                int stackLength = values.Count();
+
+                for (int i = 0; i < stackLength; i++)
                 {
-                    //remove an value
+                    //remove a value
                     int val = values.Pop();
 
-                    //check the value
-                    if (val > maxVal) { maxVal = val; }
+                    //find the hishest in the stack
+                    if (val > maxVal) { maxVal = val;}
 
-                    //and place into a stack
+                    //and place all back into a stack
                     tempStack.Push(val);
                 }
 
-                for(int i = 0; i < tempStack.Count(); i++)
+                stackLength = tempStack.Count();
+
+                for (int i = 0; i < stackLength; i++)
                 {
                     // pop the temp val
                     int val = tempStack.Pop();
-                     
+
                     //compare it to the max
-                    if (val < maxVal) {
+                    if (val < maxVal)
+                    {
                         //place it back if its less
                         values.Push(val);
                     }
                 }
-
-                return 0;
+                return maxVal;
             }
-             
+
             // For testing. Don't modify.
             public static void Main(string[] args)
             {
@@ -117,10 +123,18 @@ namespace Postfixnotation
                 rpn.Process("4");
                 rpn.Process("*");
 
-
                 Console.WriteLine("result = " + rpn.Result());
 
-               
+                //make a stack
+                Stack<int> testStack = new Stack<int>();
+                testStack.Push(5);
+                testStack.Push(1);
+                testStack.Push(4);
+                testStack.Push(7);
+
+                Console.WriteLine("maxVal=" + RemoveMax(testStack));
+
+
             }
         }
     }
